@@ -128,6 +128,136 @@ export const questions = [
             { text: { es: "La belleza de la moda detallada, la simetría y el arte del cosplay refinado.", en: "The beauty of detailed fashion, symmetry, and refined cosplay art." }, type: "elegant" },
             { text: { es: "Conectar con mi comunidad de internet, divertirme jugando y lucir cool.", en: "Connecting with my internet community, having fun gaming, and looking cool." }, type: "gamer" }
         ]
+    },
+        {
+        text: {
+            es: "¿Cuál sería tu bebida ideal mientras te relajas?",
+            en: "What would be your ideal drink while relaxing?"
+        },
+        options: [
+            { text: { es: "Un batido de fresa o leche con chocolate.", en: "A strawberry milkshake or chocolate milk." }, type: "classic" },
+            { text: { es: "Café negro bien cargado o un té herbal oscuro.", en: "Strong black coffee or a dark herbal tea." }, type: "goth" },
+            { text: { es: "Agua fría con limón o una bebida isotónica.", en: "Cold water with lemon or an isotonic drink." }, type: "casual" },
+            { text: { es: "Un té Earl Grey servido en porcelana fina.", en: "Earl Grey tea served in fine china." }, type: "elegant" },
+            { text: { es: "Una bebida energética o un refresco con mucho hielo.", en: "An energy drink or a soda with lots of ice." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Cómo decorarías tu habitación ideal?",
+            en: "How would you decorate your ideal room?"
+        },
+        options: [
+            { text: { es: "Con muchos peluches, luces de hadas y colores claros.", en: "With lots of plushies, fairy lights, and light colors." }, type: "classic" },
+            { text: { es: "Con velas, posters de bandas y una iluminación tenue.", en: "With candles, band posters, and dim lighting." }, type: "goth" },
+            { text: { es: "Minimalista, ordenada y con mucha luz natural.", en: "Minimalist, tidy, and with plenty of natural light." }, type: "casual" },
+            { text: { es: "Con muebles clásicos, cuadros artísticos y cortinas de seda.", en: "With classic furniture, artistic paintings, and silk curtains." }, type: "elegant" },
+            { text: { es: "Con tiras LED RGB, múltiples monitores y figuras de acción.", en: "With RGB LED strips, multiple monitors, and action figures." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "Si tuvieras que elegir un 'superpoder' estético, ¿cuál sería?",
+            en: "If you had to choose an aesthetic 'superpower', what would it be?"
+        },
+        options: [
+            { text: { es: "Ser adorable instantáneamente para cualquiera que me vea.", en: "Being instantly adorable to anyone who sees me." }, type: "classic" },
+            { text: { es: "Poder moverme entre las sombras sin ser detectado.", en: "Being able to move through shadows undetected." }, type: "goth" },
+            { text: { es: "Tener energía infinita para hacer cualquier actividad física.", en: "Having infinite energy for any physical activity." }, type: "casual" },
+            { text: { es: "Mantener mi ropa impecable y sin arrugas todo el día.", en: "Keeping my clothes flawless and wrinkle-free all day." }, type: "elegant" },
+            { text: { es: "Tener reflejos sobrehumanos y una puntería perfecta.", en: "Having superhuman reflexes and perfect aim." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Qué tipo de contenido prefieres consumir en redes sociales?",
+            en: "What kind of content do you prefer to consume on social media?"
+        },
+        options: [
+            { text: { es: "Vlogs de estilo de vida, mascotas tiernas y moda kawaii.", en: "Lifestyle vlogs, cute pets, and kawaii fashion." }, type: "classic" },
+            { text: { es: "Arte oscuro, fotografía urbana nocturna y memes de nicho.", en: "Dark art, urban night photography, and niche memes." }, type: "goth" },
+            { text: { es: "Rutinas de ejercicio, consejos de salud y viajes.", en: "Workout routines, health tips, and travel." }, type: "casual" },
+            { text: { es: "Tutoriales de etiqueta, diseño de interiores y alta costura.", en: "Etiquette tutorials, interior design, and high fashion." }, type: "elegant" },
+            { text: { es: "Gameplays, noticias de hardware y clips de e-sports.", en: "Gameplays, hardware news, and e-sports clips." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Cómo te sientes respecto al clima lluvioso?",
+            en: "How do you feel about rainy weather?"
+        },
+        options: [
+            { text: { es: "Me encanta para acurrucarme con una manta caliente.", en: "I love it for curling up with a warm blanket." }, type: "classic" },
+            { text: { es: "Es mi clima favorito; me inspira y me hace sentir vivo.", en: "It's my favorite weather; it inspires me and makes me feel alive." }, type: "goth" },
+            { text: { es: "Es un poco molesto para salir, pero el olor a tierra mojada es genial.", en: "It's a bit annoying for going out, but the smell of wet earth is great." }, type: "casual" },
+            { text: { es: "Es la excusa perfecta para usar un paraguas elegante y gabardina.", en: "It's the perfect excuse to use an elegant umbrella and trench coat." }, type: "elegant" },
+            { text: { es: "No me importa, siempre que no se vaya la luz y pueda seguir jugando.", en: "I don't mind, as long as the power doesn't go out and I can keep playing." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Cuál es tu actitud al conocer a un grupo de personas nuevas?",
+            en: "What is your attitude when meeting a new group of people?"
+        },
+        options: [
+            { text: { es: "Soy amigable pero espero a que los demás hablen primero.", en: "I'm friendly but I wait for others to speak first." }, type: "classic" },
+            { text: { es: "Me mantengo al margen observando antes de intervenir.", en: "I stay on the sidelines observing before stepping in." }, type: "goth" },
+            { text: { es: "Soy el primero en saludar y tratar de romper el hielo.", en: "I'm the first to say hello and try to break the ice." }, type: "casual" },
+            { text: { es: "Me presento de forma formal y educada manteniendo la compostura.", en: "I introduce myself formally and politely while maintaining composure." }, type: "elegant" },
+            { text: { es: "Si hablamos de juegos o tecnología, ¡no hay quien me calle!", en: "If we talk about games or tech, there's no stopping me!" }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Qué detalle te gustaría más en un par de medias?",
+            en: "What detail would you like most in a pair of socks?"
+        },
+        options: [
+            { text: { es: "Patrones de corazones o gatitos en colores suaves.", en: "Heart or kitty patterns in soft colors." }, type: "classic" },
+            { text: { es: "Encaje negro con pequeñas calaveras o cruces.", en: "Black lace with small skulls or crosses." }, type: "goth" },
+            { text: { es: "Colores sólidos y material transpirable de alta calidad.", en: "Solid colors and high-quality breathable material." }, type: "casual" },
+            { text: { es: "Un acabado satinado con un lazo de seda lateral.", en: "A satin finish with a side silk bow." }, type: "elegant" },
+            { text: { es: "Rayas de colores neón o logos de una marca tecnológica.", en: "Neon-colored stripes or tech brand logos." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Cómo prefieres llevar tus uñas?",
+            en: "How do you prefer to wear your nails?"
+        },
+        options: [
+            { text: { es: "Cortas, limpias y quizás con un brillo rosa suave.", en: "Short, clean, and maybe with a soft pink gloss." }, type: "classic" },
+            { text: { es: "Pintadas de negro mate o de un color rojo oscuro.", en: "Painted matte black or a dark red color." }, type: "goth" },
+            { text: { es: "Naturales, bien recortadas y funcionales.", en: "Natural, well-trimmed, and functional." }, type: "casual" },
+            { text: { es: "Largas, con manicura francesa o diseños artísticos finos.", en: "Long, with a French manicure or fine artistic designs." }, type: "elegant" },
+            { text: { es: "Con colores brillantes que resalten bajo las luces LED.", en: "With bright colors that stand out under LED lights." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Qué tipo de perfume o aroma prefieres?",
+            en: "What kind of perfume or scent do you prefer?"
+        },
+        options: [
+            { text: { es: "Aromas dulces como vainilla, fresa o algodón de azúcar.", en: "Sweet scents like vanilla, strawberry, or cotton candy." }, type: "classic" },
+            { text: { es: "Aromas intensos y amaderados o incienso misterioso.", en: "Intense and woody scents or mysterious incense." }, type: "goth" },
+            { text: { es: "Olores cítricos, frescos y que huelan a limpieza.", en: "Citrusy, fresh scents that smell clean." }, type: "casual" },
+            { text: { es: "Fragancias florales refinadas como rosas o jazmín.", en: "Refined floral fragrances like roses or jasmine." }, type: "elegant" },
+            { text: { es: "Aromas modernos, sintéticos o simplemente ninguno.", en: "Modern, synthetic scents, or simply none." }, type: "gamer" }
+        ]
+    },
+    {
+        text: {
+            es: "¿Cuál es tu filosofía respecto a los accesorios?",
+            en: "What is your philosophy regarding accessories?"
+        },
+        options: [
+            { text: { es: "Entre más tierno y suave sea, mejor.", en: "The cuter and softer it is, the better." }, type: "classic" },
+            { text: { es: "Deben tener significado o un aire de misterio.", en: "They should have meaning or an air of mystery." }, type: "goth" },
+            { text: { es: "Solo uso lo que es estrictamente necesario y cómodo.", en: "I only use what is strictly necessary and comfortable." }, type: "casual" },
+            { text: { es: "Cada accesorio debe complementar perfectamente el conjunto total.", en: "Each accessory must perfectly complement the total outfit." }, type: "elegant" },
+            { text: { es: "Uso cosas que reflejen mis intereses técnicos o hobbies.", en: "I use things that reflect my technical interests or hobbies." }, type: "gamer" }
+        ]
     }
 ];
 

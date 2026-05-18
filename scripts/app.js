@@ -13,6 +13,10 @@ function detectBrowserLanguage() {
     return supportedLanguages.includes(baseLang) ? baseLang: 'en';
 }
 
+function shawarmaFun() {
+    //FALTA
+}
+
 function init() {
     elements.startBtn.addEventListener('click', startQuiz);
     elements.restartBtn.addEventListener('click', restartQuiz);
