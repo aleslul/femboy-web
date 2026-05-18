@@ -2,15 +2,24 @@ import { questions, archetypes } from './data.js';
 import { uiTranslations } from './i18n.js';
 import { elements, updateLanguageStaticDOM, renderQuestionDOM, renderResultsDOM } from './dom.js';
 
-let currentLang = 'en';
+let currentLang = detectBrowserLanguage();
 let currentQuestion = 0;
 let scores = { classic: 0, goth: 0, casual: 0, elegant: 0, gamer: 0 };
+
+function detectBrowserLanguage() {
+    const browserLang = navigator.language || navigator.userLanguage;
+    const baseLang = browserLang.split('-')[0].toLowerCase();
+    const supportedLanguages = ['es', 'en'];
+    return supportedLanguages.includes(baseLang) ? baseLang: 'en';
+}
 
 function init() {
     elements.startBtn.addEventListener('click', startQuiz);
     elements.restartBtn.addEventListener('click', restartQuiz);
     elements.shareBtn.addEventListener('click', handleCopyResults);
     elements.langBtn.addEventListener('click', toggleLanguage);
+
+    elements.langBtn.textContent = currentLang == 'es' ? '🌐 English' : '🌐 Español';
     
     // Carga inicial del idioma por defecto
     updateLanguageStaticDOM(currentLang);
@@ -40,7 +49,7 @@ function processQuizStep() {
 
 function toggleLanguage() {
     currentLang = currentLang === 'es' ? 'en' : 'es';
-    elements.langBtn.textContent = currentLang === 'es' ? '🌐 EN' : '🌐 ES';
+    elements.langBtn.textContent = currentLang === 'es' ? '🌐 English' : '🌐 Español';
     
     updateLanguageStaticDOM(currentLang);
     
