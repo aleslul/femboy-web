@@ -54,17 +54,13 @@ export function updateLanguageStaticDOM(lang) {
     
     // Quiz Screen
     elements.quizScreen.querySelector('.text-xs.text-slate-500').childNodes[0].textContent = t.navDetail;
-    /*elements.quizScreen.querySelector('span.flex').innerHTML = `
-    <svg class="w-3.5 h-3.5 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-        </svg> ${t.anonQuiz}`; */
     if (elements.anonQuizLabel) {
         elements.anonQuizLabel.innerHTML = `
             <svg class="w-3.5 h-3.5 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
             </svg> ${t.anonQuiz}`;
     }
-    
+
     if (elements.backBtnText) elements.backBtnText.textContent = t.backBtn; //TODO: Revisar
         
     // Results Screen

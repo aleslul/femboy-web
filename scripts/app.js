@@ -8,14 +8,22 @@ let currentQuestion = 0;
 let scores = {};
 let answerHistory = [];
 let shuffledQuestions = [];
-
+/*
 function detectBrowserLanguage() {
     const browserLang = navigator.language || navigator.userLanguage;
     const baseLang = browserLang.split('-')[0].toLowerCase();
     const supportedLanguages = ['es', 'en'];
     return supportedLanguages.includes(baseLang) ? baseLang: 'en';
+} */
+function detectBrowserLanguage() {
+    try {
+        const browserLang = (navigator.language || navigator.userLanguage || 'es').slice(0, 2).toLowerCase();
+        const supportedLanguages = ['es', 'en'];
+        return supportedLanguages.includes(browserLang) ? browserLang : 'es';
+    } catch (e) {
+        return 'es'; // Fallback total si algo falla
+    }
 }
-
 function shawarmaFun() {
     //FALTA
 }
