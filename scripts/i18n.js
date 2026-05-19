@@ -24,7 +24,8 @@ export const uiTranslations = {
         shareBtn: "Copiar Resultados",
         shareBtnActive: "¡Copiado!",
         toast: "¡Resultados copiados al portapapeles!",
-        shareTemplate: "🌸 ¡Hice el Test de Arquetipo Femboy! 🌸\n\n🎯 Mi tipo principal es: {title} ({pct}% de afinidad)\n✨ \"{tagline}\"\n\n📊 Desglose de mis afinidades:{breakdown}\n\n¡Prueba tú también el tuyo! 💕"
+        shareTemplate: "🌸 ¡Hice el Test de Arquetipo Femboy! 🌸\n\n🎯 Mi tipo principal es: {title} ({pct}% de afinidad)\n✨ \"{tagline}\"\n\n📊 Desglose de mis afinidades:{breakdown}\n\n¡Prueba tú también el tuyo! 💕",
+        shareMessage: "¡Soy {result} {emoji}! ✨\nDescubre qué tipo eres tú en este test:",
     },
     en: {
         fuckMe: "Fuck me 😘",
@@ -51,6 +52,7 @@ export const uiTranslations = {
         shareBtn: "Copy Results",
         shareBtnActive: "Copied!",
         toast: "Results copied to clipboard!",
-        shareTemplate: "🌸 I took the Femboy Archetype Quiz! 🌸\n\n🎯 My main type is: {title} ({pct}% affinity)\n✨ \"{tagline}\"\n\n📊 My affinity breakdown:{breakdown}\n\nTry it yourself! 💕"
+        shareTemplate: "🌸 I took the Femboy Archetype Quiz! 🌸\n\n🎯 My main type is: {title} ({pct}% affinity)\n✨ \"{tagline}\"\n\n📊 My affinity breakdown:{breakdown}\n\nTry it yourself! 💕",
+        shareMessage: "I'm a {result} {emoji}! ✨\nFind out what kind you are in this test:",
     }
 };

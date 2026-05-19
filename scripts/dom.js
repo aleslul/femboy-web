@@ -12,6 +12,10 @@ export const elements = {
     restartBtn: document.getElementById('restart-btn'),
     shareBtn: document.getElementById('share-btn'),
     shareBtnText: document.getElementById('share-btn-text'),
+    whatsappBtn: document.getElementById('whatsapp-share'),
+    telegramBtn: document.getElementById('telegram-share'),
+    instagramBtn: document.getElementById('instagram-share'),
+    messengerBtn: document.getElementById('messenger-share'),
     langBtn: document.getElementById('lang-btn'),
     questionText: document.getElementById('question-text'),
     optionsContainer: document.getElementById('options-container'),
@@ -82,13 +86,11 @@ export function updateLanguageStaticDOM(lang) {
     elements.toastMessage.lastChild.textContent = t.toast;
 }
 
-// QUESTIONS: Ahora con shuffle y lógica dinámica
+// QUESTIONS
 export function renderQuestionDOM(questionData, index, totalQuestions, lang, onSelectCallback) {
-    //const q = questions[index];
     const t = uiTranslations[lang];
     const progressVal = Math.round((index / totalQuestions) * 100);
     
-    // Actualizar el contador de preguntas dinámicamente
     const counterWrapper = elements.currentQuestionNum.parentNode;
     counterWrapper.innerHTML = `${t.questionNum} <span id="current-question-num" class="text-brand-400 font-bold">${index + 1}</span> ${t.questionOf} ${totalQuestions}`;
     elements.currentQuestionNum = document.getElementById('current-question-num');
@@ -99,10 +101,7 @@ export function renderQuestionDOM(questionData, index, totalQuestions, lang, onS
     elements.questionText.textContent = questionData.text[lang];
     elements.optionsContainer.innerHTML = '';
 
-    // Barajamos las opciones para esta renderización específica
-    const randomizedOptions = shuffleArray(questionData.options);
-
-    randomizedOptions.forEach((opt, idx) => {
+    questionData.options.forEach((opt, idx) => {
         const btn = document.createElement('button');
         btn.className = "w-full text-left bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-slate-700/80 p-4 rounded-2xl transition-all duration-200 flex items-center gap-4 group active:scale-[0.99]";
         
