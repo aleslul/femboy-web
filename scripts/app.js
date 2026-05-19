@@ -1,10 +1,13 @@
 import { questions, archetypes } from './data.js';
 import { uiTranslations } from './i18n.js';
 import { elements, updateLanguageStaticDOM, renderQuestionDOM, renderResultsDOM } from './dom.js';
+import { shuffleArray } from './utils.js';
 
 let currentLang = detectBrowserLanguage();
 let currentQuestion = 0;
-let scores = { classic: 0, goth: 0, casual: 0, elegant: 0, gamer: 0 };
+let scores = {};
+let answerHistory = [];
+let shuffledQuestions = [];
 
 function detectBrowserLanguage() {
     const browserLang = navigator.language || navigator.userLanguage;
@@ -22,18 +25,30 @@ function init() {
     elements.restartBtn.addEventListener('click', restartQuiz);
     elements.shareBtn.addEventListener('click', handleCopyResults);
     elements.langBtn.addEventListener('click', toggleLanguage);
-
     elements.langBtn.textContent = currentLang == 'es' ? '🌐 English' : '🌐 Español';
+    elements.backBtn.addEventListener('click', handleBackStep);
     
+    
+    resetScores();
     // Carga inicial del idioma por defecto
     updateLanguageStaticDOM(currentLang);
 }
 
+function resetScores() {
+    scores = {};
+    Object.keys(archetypes).forEach (key => {
+        scores[key] = 0;
+    });
+}
+
 function startQuiz() {
-    elements.welcomeScreen.classList.add('hidden');
+    elements.welcomeScreen.classList.add('hidden'); //TODO: revisar despues para shawarma
     elements.quizScreen.classList.remove('hidden');
+
     currentQuestion = 0;
-    scores = { classic: 0, goth: 0, casual: 0, elegant: 0, gamer: 0 };
+    answerHistory = [];
+    resetScores();
+    shuffledQuestions = shuffleArray(questions);
     processQuizStep();
 }
 
@@ -44,11 +59,30 @@ function processQuizStep() {
         renderResultsDOM(scores, currentLang);
         return;
     }
-    renderQuestionDOM(currentQuestion, currentLang, (selectedType) => {
+
+    if (currentQuestion > 0) {
+        elements.backBtn.classList.remove('hidden');
+    } else {
+        elements.backBtn.classList.add('hidden');
+    }
+
+    const questionData = shuffledQuestions[currentQuestion];
+
+    renderQuestionDOM(questionData, currentQuestion, shuffledQuestions.length, currentLang, (selectedType) => {
         scores[selectedType]++;
+        answerHistory.push(selectedType);
         currentQuestion++;
         processQuizStep();
     });
+}
+
+function handleBackStep() {
+    if (currentQuestion > 0) {
+        currentQuestion--;
+        const lastType = answerHistory.pop();
+        scores[lastType]--;
+        processQuizStep();
+    }
 }
 
 function toggleLanguage() {
@@ -58,11 +92,7 @@ function toggleLanguage() {
     updateLanguageStaticDOM(currentLang);
     
     if (!elements.quizScreen.classList.contains('hidden')) {
-        renderQuestionDOM(currentQuestion, currentLang, (selectedType) => {
-            scores[selectedType]++;
-            currentQuestion++;
-            processQuizStep();
-        });
+        processQuizStep();
     } else if (!elements.resultScreen.classList.contains('hidden')) {
         renderResultsDOM(scores, currentLang);
     }

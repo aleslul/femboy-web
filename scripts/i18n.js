@@ -1,5 +1,6 @@
 export const uiTranslations = {
     es: {
+        fuckMe: "Cógeme 😘",
         welcomeBadge: "Descubre tu Estilo Ideal",
         welcomeTitle: "¿Qué tipo de Femboy eres?",
         welcomeDesc: "Descubre tu verdadera estética dentro de la cultura femboy. Responde honestamente para recibir un desglose detallado de tu estilo y consejos personalizados.",
@@ -8,6 +9,7 @@ export const uiTranslations = {
         rBadge: "Resultados Posibles",
         tBadge: "Para Ti",
         progressText: "completado",
+        backBtn: "Anterior",
         questionNum: "Pregunta",
         questionOf: "de",
         navDetail: "Selecciona una opción para avanzar de forma automática.",
@@ -25,6 +27,7 @@ export const uiTranslations = {
         shareTemplate: "🌸 ¡Hice el Test de Arquetipo Femboy! 🌸\n\n🎯 Mi tipo principal es: {title} ({pct}% de afinidad)\n✨ \"{tagline}\"\n\n📊 Desglose de mis afinidades:{breakdown}\n\n¡Prueba tú también el tuyo! 💕"
     },
     en: {
+        fuckMe: "Fuck me 😘",
         welcomeBadge: "Discover Your Ideal Style",
         welcomeTitle: "What type of Femboy are you?",
         welcomeDesc: "Discover your true aesthetic within the femboy culture. Answer honestly to receive a detailed breakdown of your style and custom tips.",
@@ -33,6 +36,7 @@ export const uiTranslations = {
         rBadge: "Possible Results",
         tBadge: "For You",
         progressText: "completed",
+        backBtn: "Back",
         questionNum: "Question",
         questionOf: "of",
         navDetail: "Select an option to advance automatically.",

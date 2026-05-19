@@ -1,7 +1,9 @@
 import { uiTranslations } from './i18n.js';
 import { questions, archetypes } from './data.js';
+import { shuffleArray } from './utils.js';
 
 export const elements = {
+    fuckMeSpan: document.getElementById('fuck-me-span'),
     welcomeScreen: document.getElementById('welcome-screen'),
     quizScreen: document.getElementById('quiz-screen'),
     resultScreen: document.getElementById('result-screen'),
@@ -13,9 +15,12 @@ export const elements = {
     langBtn: document.getElementById('lang-btn'),
     questionText: document.getElementById('question-text'),
     optionsContainer: document.getElementById('options-container'),
+    backBtn: document.getElementById('back-btn'),
+    backBtnText: document.getElementById('back-btn-text'),
     currentQuestionNum: document.getElementById('current-question-num'),
     progressPercent: document.getElementById('quiz-progress-percent'),
     progressBarFill: document.getElementById('progress-bar-fill'),
+    anonQuizLabel: document.getElementById('anon-quiz-label'),
     resultTitle: document.getElementById('result-title'), 
     resultTagline: document.getElementById('result-tagline'),
     resultEmoji: document.getElementById('result-emoji'),
@@ -28,23 +33,12 @@ export const elements = {
     toastMessage: document.getElementById('toast-message')
 };
 
-/**
- * Función interna para barajar las opciones sin mutar el array original.
- * Implementa el algoritmo Fisher-Yates.
-*/
-
-function shuffleArray(array) {
-    const shuffled = [...array];
-    for (let i = shuffled.length - 1; i > 0; i--) {
-        const j = Math.floor(Math.random() * (i + 1));
-        [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
-    }
-    return shuffled;
-} 
-
 export function updateLanguageStaticDOM(lang) {
     const t = uiTranslations[lang];
     
+    // Header
+    if (elements.fuckMeSpan) elements.fuckMeSpan.textContent = t.fuckMe;
+
     // Welcome Screen
     elements.welcomeScreen.querySelector('span.uppercase').textContent = t.welcomeBadge;
     elements.welcomeScreen.querySelector('h1').textContent = t.welcomeTitle;
@@ -60,10 +54,18 @@ export function updateLanguageStaticDOM(lang) {
     
     // Quiz Screen
     elements.quizScreen.querySelector('.text-xs.text-slate-500').childNodes[0].textContent = t.navDetail;
-    elements.quizScreen.querySelector('span.flex').innerHTML = `
-        <svg class="w-3.5 h-3.5 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+    /*elements.quizScreen.querySelector('span.flex').innerHTML = `
+    <svg class="w-3.5 h-3.5 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
             <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
-        </svg> ${t.anonQuiz}`;
+        </svg> ${t.anonQuiz}`; */
+    if (elements.anonQuizLabel) {
+        elements.anonQuizLabel.innerHTML = `
+            <svg class="w-3.5 h-3.5 text-brand-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clip-rule="evenodd"></path>
+            </svg> ${t.anonQuiz}`;
+    }
+    
+    if (elements.backBtnText) elements.backBtnText.textContent = t.backBtn; //TODO: Revisar
         
     // Results Screen
     elements.resultScreen.querySelector('span.uppercase').textContent = t.complBadge;
@@ -85,23 +87,24 @@ export function updateLanguageStaticDOM(lang) {
 }
 
 // QUESTIONS: Ahora con shuffle y lógica dinámica
-export function renderQuestionDOM(index, lang, onSelectCallback) {
-    const q = questions[index];
+export function renderQuestionDOM(questionData, index, totalQuestions, lang, onSelectCallback) {
+    //const q = questions[index];
     const t = uiTranslations[lang];
-    const progressVal = Math.round((index / questions.length) * 100);
+    const progressVal = Math.round((index / totalQuestions) * 100);
     
     // Actualizar el contador de preguntas dinámicamente
     const counterWrapper = elements.currentQuestionNum.parentNode;
-    counterWrapper.innerHTML = `${t.questionNum} <span id="current-question-num" class="text-brand-400 font-bold">${index + 1}</span> ${t.questionOf} ${questions.length}`;
+    counterWrapper.innerHTML = `${t.questionNum} <span id="current-question-num" class="text-brand-400 font-bold">${index + 1}</span> ${t.questionOf} ${totalQuestions}`;
     elements.currentQuestionNum = document.getElementById('current-question-num');
     
     elements.progressPercent.textContent = `${progressVal}% ${t.progressText}`;
     elements.progressBarFill.style.width = `${progressVal || 5}%`;
-    elements.questionText.textContent = q.text[lang];
+
+    elements.questionText.textContent = questionData.text[lang];
     elements.optionsContainer.innerHTML = '';
 
     // Barajamos las opciones para esta renderización específica
-    const randomizedOptions = shuffleArray(q.options);
+    const randomizedOptions = shuffleArray(questionData.options);
 
     randomizedOptions.forEach((opt, idx) => {
         const btn = document.createElement('button');
