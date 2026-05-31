@@ -85,24 +85,40 @@ async function shareTo(platform) {
 
             elements.instagramBtn.style.opacity = "0.5";
 
+            // Extraemos la generación de la imagen al alcance principal de la función
             const imageData = await generateResultCanvas(profile, pct, currentLang, uiTranslations[currentLang]);
 
-            console.log("Paso 01: ok!");
+            try {
+                const res = await fetch(imageData);
+                const blob = await res.blob();
+                const imageFile = new File([blob], `femboy-test-${dominantType}.png`, { type: 'image/png' });
 
+                if (navigator.canShare && navigator.canShare({ files: [imageFile] })) {
+                    await navigator.share({
+                        files: [imageFile],
+                        title: 'Mi Resultado',
+                        text: fullMessage
+                    });
+                    elements.instagramBtn.style.opacity = "1";
+                    return; 
+                }
+            } catch (error) {
+                console.warn('Share nativo cancelado o fallido:', error);
+            }
+
+            // Como imageData ahora es global para este case, el fallback funciona perfectamente
             const link = document.createElement('a');
             link.download = `femboy-test-${dominantType}.png`;
             link.href = imageData;
             link.click();
 
-            console.log("Paso 02: ok!");
             setTimeout(() => {
                 alert(currentLang === 'es' ? 
-                    "¡Imagen descargada! Súbela ahora a tus Stories." : 
-                    "Image downloaded! Now upload it to your Stories.");
+                    "¡Imagen descargada! Abre Instagram y súbela a tus Stories." : 
+                    "Image downloaded! Open Instagram and upload it to your Stories.");
                 window.open('https://www.instagram.com/', '_blank');
                 elements.instagramBtn.style.opacity = "1";
             }, 500);
-            console.log("Paso 03: ok!");
             break;
     }
 
